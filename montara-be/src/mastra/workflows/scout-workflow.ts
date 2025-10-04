@@ -48,12 +48,19 @@ const scoutWorkflow = createWorkflow({
 })
   .then(webSearchStep)
   .then(createStep(websiteScrapeTool))
-  .map(async ({ inputData }) => {
-    const { content } = inputData;
-    return {
-      prompt: `Summarize the following website content according to its relevance to finding ski accommodations: ${content}`,
-    };
-  })
+  .map(
+    async ({ inputData }) => {
+      const { rawHtml, markdown, summary, links } = inputData;
+      return {
+        prompt: `Summarize the following website content according to its relevance to finding ski accommodations. 
+        Raw HTML: ${rawHtml}
+        Markdown: ${markdown}
+        Summary: ${summary}
+        Links: ${links}`,
+      };
+    },
+    { id: "map-step" }
+  )
   .then(createStep(resultSummarizerAgent));
 
 scoutWorkflow.commit();
