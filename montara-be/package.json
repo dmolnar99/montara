@@ -22,9 +22,10 @@
     "@mastra/core": "0.20.0",
     "@mastra/libsql": "0.15.1",
     "@mastra/loggers": "0.10.15",
-    "@mastra/memory": "0.15.5",
     "@mastra/mcp": "0.13.0",
-    "zod": "^3.25.76"
+    "@mastra/memory": "0.15.5",
+    "@mendable/firecrawl-js": "4.3.7",
+    "zod": "4.1.11"
   },
   "devDependencies": {
     "@types/node": "24.6.2",
